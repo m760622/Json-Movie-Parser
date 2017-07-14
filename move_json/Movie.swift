@@ -10,13 +10,16 @@ import Foundation
 import SwiftyJSON
 
 class Movie {
-    var title: String
-    var author: String
+    var title: String?
+    var author: String?
     
     // The int takes in JSON and parses it for us
     // After that, it sets the values for us
-    init(_ json: JSON){
-        self.title = json["title"]["label"].stringValue
-        self.author = json["im:artist"]["label"].stringValue
+    init?(_ json: JSON){
+        guard let title = json["title"]["label"].string,
+            let author = json["im:artist"]["label"].string
+            else { return nil }
+        self.title = title
+        self.author = author
     }
 }

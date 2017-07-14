@@ -28,8 +28,9 @@ struct MovieService {
             
             // Iterats through objects in feed
             for movie in feed{
-                let newMovie = Movie(movie) // Creates new movie
-                arrayOfMovies.append(newMovie) // Adds movie to the array
+                if let newMovie = Movie(movie){ // Creates new movie
+                 arrayOfMovies.append(newMovie) // Adds movie to the array
+                }
             }
             completion(arrayOfMovies) // Completion completes with the arrayOfMovies
         }
