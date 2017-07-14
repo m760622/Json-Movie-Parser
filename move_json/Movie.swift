@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 
 class Movie {
-    var title: String?
-    var author: String?
+    var title: String
+    var author: String
     
     // The int takes in JSON and parses it for us
     // After that, it sets the values for us
