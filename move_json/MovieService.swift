@@ -16,7 +16,7 @@ struct MovieService {
     
     // This function grabs the movie objects from the API and completes
     // With an array of Created Movie Objects
-    /*
+    
     static func getMovies(completion: @escaping ([Movie]) -> ()){
         var arrayOfMovies: [Movie] = [] // Temp Array
         
@@ -29,22 +29,16 @@ struct MovieService {
             // Goes to the feed branch, then the entry branch
             let feed = json["feed"]["entry"].arrayValue
             
-            /*
-            Uncomment this if you plan to use the SwiftyJSON initializer
             // Iterats through objects in feed
              for movie in feed {
                 if let newMovie = Movie(movie){ // Creates new movie
                     arrayOfMovies.append(newMovie) // Adds movie to the array
                 }
- 
             }
-            */
-            
             completion(arrayOfMovies) // Completion completes with the arrayOfMovies
         }
     }
-    */
-    
+ 
     // This function grabs the movie objects from the API and completes
     // With an array of Created Movie Objects
     // Without alamofire and SwiftyJSON
