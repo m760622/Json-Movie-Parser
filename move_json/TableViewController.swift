@@ -16,17 +16,27 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set delegate and datasorce
-        tableView.delegate = self
-        tableView.dataSource = self
-        
         // Movie Service Fucntion
+        
+        /* This is the SwiftyJSON function
         MovieService.getMovies { (moviesFromBackend) in
             
             // Set the classes array of movies with 
             // The movies we grabbed from the backend
             // The reload the tableview
             self.arrayOfMovies = moviesFromBackend
+            self.tableView.reloadData()
+        }
+        */
+        
+        MovieService.getMoviesManually { (error, movies) in
+        
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            self.arrayOfMovies = movies
             self.tableView.reloadData()
         }
     }
